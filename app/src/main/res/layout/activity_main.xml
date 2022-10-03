@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10pt"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Rangkuman Keuangan"
+        ap:layout_constraintEnd_toEndOf="parent"
+        ap:layout_constraintStart_toStartOf="parent"
+        ap:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pengeluaran: Rp. "
+        ap:layout_constraintStart_toStartOf="@+id/guideline5"
+        ap:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/pengeluaran"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:text=""
+        android:textColor="@color/design_default_color_error"
+        ap:layout_constraintBottom_toBottomOf="@+id/textView17"
+        ap:layout_constraintStart_toEndOf="@+id/textView17" />
+
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pemasukan: Rp. "
+        ap:layout_constraintStart_toStartOf="@+id/guideline5"
+        ap:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/pemasukan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/teal_700"
+        ap:layout_constraintBottom_toTopOf="@+id/textView17"
+        ap:layout_constraintStart_toEndOf="@+id/textView18"
+        ap:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+
+    <!--                        <com.androidplot.xy.XYPlot-->
+    <!--                                style="@style/APDefacto.Dark"-->
+    <!--                                android:id="@+id/plot"-->
+    <!--                                android:layout_width="800dp"-->
+    <!--                                android:layout_height="240dp"-->
+    <!--                                ap:title="Plot Pemasukan dan Pengeluaran"-->
+    <!--                                ap:domainStep = "31"-->
+    <!--                                ap:graphPaddingLeft = "35dp"-->
+    <!--                                ap:lineLabels="left|bottom"-->
+    <!--                                ap:lineLabelRotationBottom="-45"/>-->
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        ap:layout_constraintBottom_toBottomOf="@+id/apply"
+        ap:layout_constraintEnd_toStartOf="@+id/guideline6"
+        ap:layout_constraintStart_toEndOf="@+id/spinner2"
+        ap:layout_constraintTop_toTopOf="@+id/apply" />
+
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        ap:layout_constraintBottom_toBottomOf="@+id/spinner"
+        ap:layout_constraintEnd_toStartOf="@+id/guideline5"
+        ap:layout_constraintStart_toStartOf="parent"
+        ap:layout_constraintTop_toTopOf="@+id/spinner" />
+
+    <Button
+        android:id="@+id/apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="apply"
+        ap:layout_constraintBottom_toTopOf="@+id/money_add"
+        ap:layout_constraintEnd_toEndOf="parent"
+        ap:layout_constraintStart_toEndOf="@+id/spinner" />
+
+
+    <ImageView
+        android:id="@+id/money_add"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        ap:layout_constraintBottom_toTopOf="@+id/textView19"
+        ap:layout_constraintEnd_toEndOf="@+id/textView19"
+        ap:layout_constraintStart_toStartOf="@+id/textView19"
+        app:srcCompat="@drawable/piggy_bank" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Tambah Pemasukan"
+        ap:layout_constraintBottom_toTopOf="@+id/info_money"
+        ap:layout_constraintEnd_toStartOf="@+id/guideline4"
+        ap:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/info_money"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        ap:layout_constraintBottom_toTopOf="@+id/textView20"
+        ap:layout_constraintEnd_toEndOf="@+id/textView20"
+        ap:layout_constraintStart_toStartOf="@+id/textView20"
+        app:srcCompat="@drawable/info_money" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detail Cash Flow"
+        ap:layout_constraintBottom_toBottomOf="parent"
+        ap:layout_constraintEnd_toStartOf="@+id/guideline4"
+        ap:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/money_subtract"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        ap:layout_constraintBottom_toTopOf="@+id/textView21"
+        ap:layout_constraintEnd_toEndOf="@+id/textView21"
+        ap:layout_constraintStart_toStartOf="@+id/textView21"
+        app:srcCompat="@drawable/cash_withdrawal" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tambah Pengeluaran"
+        ap:layout_constraintEnd_toEndOf="parent"
+        ap:layout_constraintStart_toStartOf="@+id/guideline4"
+        ap:layout_constraintTop_toTopOf="@+id/textView19" />
+
+    <ImageView
+        android:id="@+id/setting"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        ap:layout_constraintBottom_toTopOf="@+id/textView22"
+        ap:layout_constraintEnd_toEndOf="@+id/textView22"
+        ap:layout_constraintStart_toStartOf="@+id/textView22"
+        app:srcCompat="@drawable/id_card" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pengaturan"
+        ap:layout_constraintBottom_toBottomOf="parent"
+        ap:layout_constraintEnd_toEndOf="parent"
+        ap:layout_constraintStart_toStartOf="@+id/guideline4" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/mpchart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        ap:layout_constraintBottom_toTopOf="@+id/apply"
+        ap:layout_constraintEnd_toEndOf="parent"
+        ap:layout_constraintStart_toStartOf="parent"
+        ap:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ap:layout_constraintGuide_percent="0.5" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ap:layout_constraintGuide_percent="0.333" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ap:layout_constraintGuide_percent="0.666" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

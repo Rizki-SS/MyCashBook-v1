@@ -1,0 +1,70 @@
+package com.example.mycashbook
+
+import android.database.Cursor
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ListView
+import android.widget.Toast
+import com.example.mycashbook.adapter.CashAdapter
+import com.example.mycashbook.model.Cash
+import mycashbook.R
+import java.lang.Integer.parseInt
+import java.util.Calendar
+
+class FlowActivity : AppCompatActivity() {
+    lateinit var db : DBHelper
+    lateinit var userTransaction : Cursor
+    lateinit var userSession : Cursor
+    lateinit var back : Button
+    var userId : Int = 0
+    var list = mutableListOf<Cash>()
+
+    val calendar = Calendar.getInstance()
+    val year = calendar.get(Calendar.YEAR)
+    val month = calendar.get(Calendar.MONTH)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_flow)
+
+        varSetting()
+
+        listView()
+        back()
+    }
+    fun varSetting() {
+        db = DBHelper(this)
+        userSession = db.getSession()
+        back = findViewById(R.id.back)
+    }
+    fun listView() {
+        if (userSession.moveToFirst()) {
+            userId = parseInt(userSession.getString(2))
+            userTransaction = db.getUserTransactionAllYear(userId)
+            Toast.makeText(applicationContext, "$userId $month", Toast.LENGTH_SHORT).show()
+            while (userTransaction.moveToNext()){
+                if (userTransaction.getString(3) == "subtract"){
+                    list.add(Cash("(-) "+userTransaction.getString(4), userTransaction.getString(2), R.drawable.sign_down_icon, userTransaction.getString(5)))
+                }
+                else {
+                    list.add(Cash("(+) "+userTransaction.getString(4), userTransaction.getString(2), R.drawable.sign_up_icon_2, userTransaction.getString(5)))
+                }
+            }
+            val listView = findViewById<ListView>(R.id.cash_list_view)
+            listView.adapter = CashAdapter(this, R.layout.row_cash, list)
+        }
+    }
+    fun back(){
+        back.setOnClickListener(View.OnClickListener {
+            startActivity(parentActivityIntent)
+            finish()
+        })
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(parentActivityIntent)
+        finish()
+    }
+}
